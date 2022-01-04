@@ -3,16 +3,28 @@
 
   export let selectedIndex = 0
 
-  $: segments = []
-
+  let segments = []
+  let currentIndex = -1
+  let backgroundWidth = 0
+  let backgroundOffset = 0
+  
   setContext('SegmentedControl', {
-    addSegment: ({ id, title, isSelected }) => {
-      segments = [...segments, { id, title, isSelected }]
+    setIndex: () => {
+      currentIndex += 1
+      return currentIndex
     },
-    setAsSelected: (id) => {
-      const recentlySelectedIndex = segments.map(({ id }) => id).indexOf(id)
-      if(selectedIndex !== recentlySelectedIndex) {
-        selectedIndex = recentlySelectedIndex
+    addSegment: ({ id, index, title, isSelected, width, offset }) => {
+      if(index === selectedIndex) {
+        backgroundWidth = width
+        backgroundOffset = offset
+      }
+      segments = [...segments, { id, index, title, isSelected, width, offset }]
+    },
+    setAsSelected: (index, width, offset) => {
+      if(index !== selectedIndex) {
+        selectedIndex = index
+        backgroundWidth = width
+        backgroundOffset = offset
       }
     }
   })
@@ -21,4 +33,5 @@
 
 <div selectedIndex={selectedIndex}>
   <slot />
+  <div style='width: {backgroundWidth}px; transform: translateX({backgroundOffset}px)'></div>
 </div>
