@@ -2,28 +2,62 @@
   import { getContext, onMount } from 'svelte'
 
   export let id = ''
-  export let index = 0
   export let title = ''
-  export let isSelected = false
-  export let width = 0
-  export let offset = 0
-  
+  export let disabled = false
+  export let controls = ''
+
+  let index = 0
+  let selected = false
   let ref = null
+  let width = 0
+  let offset = 0
+
   const ctx = getContext('SegmentedControl')
+  const selectedIndex = ctx.selectedIndex
+
+  index = ctx.setIndex()
+  $: selected = $selectedIndex === index
+  $: if (selected) { ref?.focus() }
   
   onMount(() => {
-    index = ctx.setIndex()
-    width = ref.getBoundingClientRect().width
-    offset = ref.getBoundingClientRect().left
-    ctx.addSegment({ id, index, title, isSelected, width, offset })
+    width = Math.round(ref.getBoundingClientRect().width)
+    offset = Math.round(ref.getBoundingClientRect().left)
+    ctx.addSegment({ index, width, offset })
   })
 </script>
 
 
 <button 
   bind:this={ref}
-  id={id}
-  on:click|preventDefault={() => { ctx.setAsSelected(index, width, offset) }}
+  id={id !== '' 
+    ? id 
+    : console.error('Segmented Control -> Segment: Property "id" is empty. Provide a unique non-empty id.')} 
+  class='segmented-control-item {selected ? "selected" : ""}'
+  role='tab'
+  aria-controls={controls}
+  aria-selected={selected}
+  tabindex={selected ? '0' : '-1'}
+  disabled={disabled}
+  {...$$restProps}
+  on:click
+  on:click|preventDefault={() => { 
+    ctx.setAsSelected(index)
+    ref.focus() 
+  }}
+  on:mouseover
+  on:focus
+  on:mouseout
+  on:blur
+  on:mouseenter
+  on:mouseleave
+  on:keydown
+  on:keydown='{({ key }) => {
+    if (key === 'ArrowRight') {
+      ctx.setNeighbourAsSelected(1)
+    } else if (key === 'ArrowLeft') {
+      ctx.setNeighbourAsSelected(-1)
+    }
+  }}'
 >
-  <slot />
+  <slot>{title}</slot>
 </button>
