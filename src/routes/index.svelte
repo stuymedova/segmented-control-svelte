@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import { SegmentedControl, Segment} from '$lib'
+</script>
+
+
+<SegmentedControl>
+  <Segment id='first'>First</Segment>
+  <Segment id='second'>Second</Segment>
+</SegmentedControl>

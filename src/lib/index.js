@@ -1,2 +1,2 @@
-export { default as SegmentedControl } from './SegmentedControl/SegmentedControl.svelte'
-export { default as Segment } from './SegmentedControl/Segment.svelte'
+export { default as SegmentedControl } from './SegmentedControl.svelte'
+export { default as Segment } from './Segment.svelte'
