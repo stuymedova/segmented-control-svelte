@@ -1,36 +1,30 @@
 <script>
-  import { setContext } from 'svelte'
+  import { setContext, onMount } from 'svelte'
   import { writable } from 'svelte/store'
 
-  export let selectedIndex = writable(0)
+  export let selected = 0
 
+  let selectedIndex = writable(selected)
   let segments = []
-  let currentIndex = -1
-  let backgroundWidth = 0
+  let indexIterator = -1
+  let backgroundLength = 0
   let backgroundOffset = 0
   
   setContext('SegmentedControl', {
     selectedIndex,
     setIndex: () => {
-      currentIndex += 1
-      return currentIndex
+      indexIterator += 1
+      return indexIterator
     },
-    addSegment: ({ index, width, offset }) => {
+    addSegment: ({ index, length, offset }) => {
       if (index === $selectedIndex) {
-        backgroundWidth = width
+        backgroundLength = length
         backgroundOffset = offset
       }
-      segments = [...segments, { index, width, offset }]
+      segments = [...segments, { index, length, offset }]
     },
     setAsSelected: (index) => {
-      if (index !== $selectedIndex) {
-        $selectedIndex = index
-        backgroundWidth = segments[$selectedIndex].width
-        backgroundOffset = segments[$selectedIndex].offset
-      }
-    },
-    setNeighbourAsSelected: (displacement) => {
-      $selectedIndex += displacement
+      $selectedIndex = index
 
       if ($selectedIndex < 0) {
         $selectedIndex = 0
@@ -38,8 +32,14 @@
         $selectedIndex = segments.length - 1
       }
 
-      backgroundWidth = segments[$selectedIndex].width
+      backgroundLength = segments[$selectedIndex].length
       backgroundOffset = segments[$selectedIndex].offset
+    }
+  })
+
+  onMount(() => {
+    if (segments.length < 2) {
+      console.error('Segmented Control: For the component to function properly, provide two or more Segments.')
     }
   })
 </script>
@@ -49,7 +49,6 @@
   class='segmented-control' 
   role='tablist'
   aria-orientation='horizontal'
-  selectedIndex={$selectedIndex}
   {...$$restProps}
   on:click
   on:mouseover
@@ -63,6 +62,6 @@
   <div 
     class='segmented-control-background' 
     role='presentation' 
-    style='width: {backgroundWidth}px; transform: translateX({backgroundOffset}px)'
+    style='width: {backgroundLength}px; transform: translateX({backgroundOffset}px)'
   ></div>
 </div>

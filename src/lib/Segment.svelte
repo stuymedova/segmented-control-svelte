@@ -6,23 +6,21 @@
   export let disabled = false
   export let controls = ''
 
-  let index = 0
-  let selected = false
   let ref = null
-  let width = 0
+  let length = 0
   let offset = 0
 
   const ctx = getContext('SegmentedControl')
   const selectedIndex = ctx.selectedIndex
+  const index = ctx.setIndex()
 
-  index = ctx.setIndex()
   $: selected = $selectedIndex === index
   $: if (selected) { ref?.focus() }
   
   onMount(() => {
-    width = Math.round(ref.getBoundingClientRect().width)
+    length = Math.round(ref.getBoundingClientRect().width)
     offset = Math.round(ref.getBoundingClientRect().left)
-    ctx.addSegment({ index, width, offset })
+    ctx.addSegment({ index, length, offset })
   })
 </script>
 
@@ -41,8 +39,10 @@
   {...$$restProps}
   on:click
   on:click|preventDefault={() => { 
-    ctx.setAsSelected(index)
-    ref.focus() 
+    if (index !== $selectedIndex) {
+      ctx.setAsSelected(index)
+    }
+    ref.focus()
   }}
   on:mouseover
   on:focus
@@ -53,9 +53,9 @@
   on:keydown
   on:keydown='{({ key }) => {
     if (key === 'ArrowRight') {
-      ctx.setNeighbourAsSelected(1)
+      ctx.setAsSelected(index + 1)
     } else if (key === 'ArrowLeft') {
-      ctx.setNeighbourAsSelected(-1)
+      ctx.setAsSelected(index - 1)
     }
   }}'
 >
