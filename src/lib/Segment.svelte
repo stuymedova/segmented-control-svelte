@@ -44,6 +44,7 @@
     }
     ref.focus()
   }}
+  on:click
   on:mouseover
   on:focus
   on:mouseout
@@ -92,6 +93,11 @@
 
   .segmented-control-item.selected {
     color: rgb(0, 125, 255);
+    pointer-events: none;
+  }
+
+  .segmented-control-item[aria-disabled = true] {
+    color: rgb(145, 145, 150);
     pointer-events: none;
   }
 </style>

@@ -1,16 +1,18 @@
 {
-  "name": "segmented-control-prerelease",
+  "name": "segmented-control-svelte",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
     "package": "svelte-kit package",
-    "preview": "svelte-kit preview"
+    "release": "npm run package && cd package && npm publish"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "svelte": "^3.44.0"
   },
+  "license": "MIT",
   "type": "module"
 }
