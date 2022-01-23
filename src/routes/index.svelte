@@ -3,7 +3,29 @@
 </script>
 
 
-<SegmentedControl>
-  <Segment id='first'>First</Segment>
-  <Segment id='second'>Second</Segment>
-</SegmentedControl>
+<div class='segmented-control-container'>
+  <SegmentedControl>
+    <Segment id='first'>First</Segment>
+    <Segment id='second'>Second</Segment>
+  </SegmentedControl>
+</div>
+
+
+<style>
+  :global(body) {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .segmented-control-container {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 12px;
+		z-index: 99;
+		display: flex;
+		justify-content: center;
+  }
+</style>

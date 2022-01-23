@@ -9,22 +9,22 @@
   let indexIterator = -1
   let backgroundLength = 0
   let backgroundOffset = 0
-  
+
   setContext('SegmentedControl', {
     selectedIndex,
     setIndex: () => {
       indexIterator += 1
       return indexIterator
     },
-    addSegment: ({ index, length, offset }) => {
+    addSegment: ({ index, disabled, length, offset }) => {
       if (index === $selectedIndex) {
         backgroundLength = length
         backgroundOffset = offset
       }
-      segments = [...segments, { index, length, offset }]
+      segments = [...segments, { index, disabled, length, offset }]
     },
-    setAsSelected: (index) => {
-      $selectedIndex = index
+    setAsSelected: (nextIndex) => {
+      $selectedIndex = nextIndex
 
       if ($selectedIndex < 0) {
         $selectedIndex = 0
@@ -32,8 +32,10 @@
         $selectedIndex = segments.length - 1
       }
 
-      backgroundLength = segments[$selectedIndex].length
-      backgroundOffset = segments[$selectedIndex].offset
+      if (segments[$selectedIndex].disabled !== true) {
+        backgroundLength = segments[$selectedIndex].length
+        backgroundOffset = segments[$selectedIndex].offset
+      }
     }
   })
 
@@ -65,3 +67,30 @@
     style='width: {backgroundLength}px; transform: translateX({backgroundOffset}px)'
   ></div>
 </div>
+
+
+<style>
+  .segmented-control {
+    height: 44px;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-flex;
+    margin: 0;
+    padding: 2px;
+    border-radius: 16px;
+    background-color: rgb(235, 235, 235);
+  }
+
+  .segmented-control-background {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    z-index: 1;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border-radius: 14px;
+    background-color: rgb(255, 255, 255);
+    transition: 300ms;
+  }
+</style>
