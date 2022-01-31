@@ -15,7 +15,11 @@ npm i segmented-control-svelte
 
 **Usage**
 
-Include component on a webpage by adding `import { SegmentedControl, Segment } from 'segmented-control-svelte'` within the `script` tags of a svelte file. You can further use the component as such:
+Include component on a webpage by adding 
+```js
+import { SegmentedControl, Segment } from 'segmented-control-svelte'
+``` 
+within the `script` tags of a Svelte file. You can further use the component as such:
 
 ```html
 <SegmentedControl>
