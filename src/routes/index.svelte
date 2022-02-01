@@ -1,5 +1,6 @@
 <script>
-	import { SegmentedControl, Segment} from '$lib'
+	import '$lib/main.css'
+  import { SegmentedControl, Segment} from '$lib'
 </script>
 
 

@@ -17,8 +17,9 @@ npm i segmented-control-svelte
 
 Include component on a webpage by adding 
 ```js
+import 'segmented-control-svelte/main.css' // Optional
 import { SegmentedControl, Segment } from 'segmented-control-svelte'
-``` 
+```
 within the `script` tags of a Svelte file. You can further use the component as such:
 
 ```html
@@ -51,7 +52,7 @@ Use this option to specify an index of an element to be selected by default, sta
 ```html
 <SegmentedControl selected={1}>
   <Segment id='first'>First</Segment>
-  <Segment id='second'>Second</Segment> <!-- this element will be selected initially -->
+  <Segment id='second'>Second</Segment> <!-- This element will be selected initially -->
 </SegmentedControl>
 ```
 

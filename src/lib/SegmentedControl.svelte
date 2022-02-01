@@ -67,30 +67,3 @@
     style='width: {backgroundLength}px; transform: translateX({backgroundOffset}px)'
   ></div>
 </div>
-
-
-<style>
-  .segmented-control {
-    height: 44px;
-    position: relative;
-    box-sizing: border-box;
-    display: inline-flex;
-    margin: 0;
-    padding: 2px;
-    border-radius: 16px;
-    background-color: rgb(235, 235, 235);
-  }
-
-  .segmented-control-background {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    z-index: 1;
-    height: 40px;
-    margin: 0;
-    padding: 0;
-    border-radius: 14px;
-    background-color: rgb(255, 255, 255);
-    transition: 300ms;
-  }
-</style>
