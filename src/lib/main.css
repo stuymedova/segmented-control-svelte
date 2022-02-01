@@ -53,7 +53,7 @@
   pointer-events: none;
 }
 
-.segmented-control-item[aria-disabled = true] {
+.segmented-control-item.disabled {
   color: rgb(145, 145, 150);
   pointer-events: none;
 }

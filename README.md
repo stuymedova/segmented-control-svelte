@@ -17,7 +17,7 @@ npm i segmented-control-svelte
 
 Include component on a webpage by adding 
 ```js
-import 'segmented-control-svelte/main.css' // Optional
+import 'segmented-control-svelte/main.css' // Optionally, import a stylesheet
 import { SegmentedControl, Segment } from 'segmented-control-svelte'
 ```
 within the `script` tags of a Svelte file. You can further use the component as such:
@@ -111,3 +111,15 @@ Use this option when using Segmented Control for toggling views (for accessibili
   <Segment id='second' controls='second-caption'>Second</Segment>
 </SegmentedControl>
 ```
+
+## Demo
+
+Launch a demo by running in the terminal:
+
+```shell
+git clone --depth=1 https://github.com/stuymedova/segmented-control-svelte . # Clone the latest commit from this repository to your current directory
+npm install
+npm run dev
+```
+
+The demo will be available at http://localhost:3000. Navigate to `src/routes/index.svelte` to make any changes.
