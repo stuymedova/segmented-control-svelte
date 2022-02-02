@@ -10,6 +10,8 @@
   let backgroundLength = 0
   let backgroundOffset = 0
 
+  $: selected = $selectedIndex
+
   setContext('SegmentedControl', {
     selectedIndex,
     setIndex: () => {
