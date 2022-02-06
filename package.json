@@ -1,6 +1,6 @@
 {
   "name": "segmented-control-svelte",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -16,6 +16,13 @@
     "typescript": "^4.5.5"
   },
   "repository": "github:stuymedova/segmented-control-svelte",
+  "keywords": [
+    "segmented control",
+    "ui components",
+    "svelte components",
+    "svelte",
+    "sveltejs"
+  ],
   "license": "MIT",
   "type": "module"
 }

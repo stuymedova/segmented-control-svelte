@@ -56,6 +56,24 @@ Use this option to specify an index of an element to be selected by default, sta
 </SegmentedControl>
 ```
 
+You can bind to this value to have changes to the selected index be reflected both in the Segmented Control component and any other part of the interface that uses it.
+
+```html
+<script>
+  import 'segmented-control-svelte/main.css'
+  import { SegmentedControl, Segment } from 'segmented-control-svelte'
+
+  let selected = 1
+</script>
+
+<SegmentedControl bind:selected>
+  <Segment id='first'>First</Segment>
+  <Segment id='second'>Second</Segment>
+</SegmentedControl>
+
+<p>Index of a selected element: {selected}</p>
+```
+
 **Segment**
 
 ***id***
