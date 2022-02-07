@@ -34,7 +34,7 @@
         $selectedIndex = segments.length - 1
       }
 
-      if (segments[$selectedIndex].disabled !== true) {
+      if (!segments[$selectedIndex].disabled) {
         backgroundLength = segments[$selectedIndex].length
         backgroundOffset = segments[$selectedIndex].offset
       }
