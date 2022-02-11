@@ -1,0 +1,81 @@
+.segmented-control {
+  height: 44px;
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  margin: 0;
+  padding: 2px;
+  border-radius: 16px;
+  background-color: rgb(35, 35, 35);
+}
+
+.segmented-control-background {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  z-index: 1;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border-radius: 14px;
+  background-color: rgb(25, 25, 25);
+  transition: 300ms;
+}
+
+.segmented-control-item {
+	cursor: pointer;
+	font: inherit;
+	line-height: inherit;
+	overflow: visible;
+	vertical-align:inherit;
+
+  position: relative;
+  box-sizing: border-box;
+  width: 75px;
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  border-radius: 14px;
+  z-index: 2;
+
+  font-family: sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  color: rgb(255, 255, 255);
+  transition: color 275ms;
+  background-color: transparent;
+  /* outline: none; */
+  cursor: pointer;
+}
+
+.segmented-control-item.selected {
+  color: rgb(0, 125, 255);
+  pointer-events: none;
+}
+
+.segmented-control-item.disabled {
+  color: rgb(145, 145, 150);
+  pointer-events: none;
+}
+
+/* .segmented-control-item:focus {
+	outline: 4px solid rgba(0, 125, 250, 0.6);
+	outline-offset: 1px
+}
+
+.segmented-control-item:focus[data-focus-method="mouse"], 
+.segmented-control-item:focus[data-focus-method="touch"] {
+	outline:none
+}
+
+.segmented-control-item::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+} */

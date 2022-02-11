@@ -17,7 +17,7 @@ npm i segmented-control-svelte
 
 Include component on a webpage by adding 
 ```js
-import 'segmented-control-svelte/main.css' // Optionally, import a stylesheet
+import 'segmented-control-svelte/lightMode.css' // Optional, alternatively use darkMode.css or a custom stylesheet
 import { SegmentedControl, Segment } from 'segmented-control-svelte'
 ```
 within the `script` tags of a Svelte file. You can further use the component as such:
@@ -33,8 +33,8 @@ The generated HTML will be as such:
 
 ```html
 <div class="segmented-control" role="tablist" aria-orientation="horizontal">
-  <button id="first" class="segmented-control-item selected" role="tab" aria-controls="" aria-disabled="false" aria-selected="true" tabindex="0">First</button>
-  <button id="second" class="segmented-control-item" role="tab" aria-controls="" aria-disabled="false" aria-selected="false" tabindex="-1">Second</button>
+  <button id="first" class="segmented-control-item selected" role="tab" aria-disabled="false" aria-selected="true" tabindex="0">First</button>
+  <button id="second" class="segmented-control-item" role="tab" aria-disabled="false" aria-selected="false" tabindex="-1">Second</button>
   <div class="segmented-control-background" role="presentation" style="width: 75px; transform: translateX(2px);"></div>
 </div>
 ```

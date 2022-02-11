@@ -1,5 +1,5 @@
 <script>
-	import '$lib/main.css'
+	import '$lib/lightMode.css'
   import { SegmentedControl, Segment} from '$lib'
 </script>
 
@@ -18,6 +18,7 @@
     height: auto;
     margin: 0;
     padding: 0;
+    background-color: rgb(255, 255, 255);
   }
 
   .segmented-control-container {

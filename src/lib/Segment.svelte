@@ -32,7 +32,7 @@
     : console.error('Segmented Control -> Segment: Property "id" is empty. Provide a unique non-empty id.')} 
   class='segmented-control-item {selected && !disabled ? "selected" : ""} {disabled ? "disabled" : ""}'
   role='tab'
-  aria-controls={controls}
+  aria-controls={controls || undefined}
   aria-disabled={disabled}
   aria-selected={selected && !disabled}
   tabindex={selected && !disabled ? '0' : '-1'}
