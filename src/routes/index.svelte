@@ -1,6 +1,6 @@
 <script>
 	import '$lib/lightMode.css'
-  import { SegmentedControl, Segment} from '$lib'
+  import { SegmentedControl, Segment } from '$lib'
 </script>
 
 

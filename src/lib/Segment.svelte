@@ -4,7 +4,6 @@
   export let id = ''
   export let title = ''
   export let disabled = false
-  export let controls = ''
 
   let ref = null
   let width = 0
@@ -35,7 +34,6 @@
     : console.warn('Segmented Control -> Segment: Property "id" is empty. Provide a unique non-empty id.')} 
   class='segmented-control-item {isSelected && !isDisabled ? "selected" : ""} {isDisabled ? "disabled" : ""}'
   role='tab'
-  aria-controls={controls || undefined}
   aria-selected={isSelected && !isDisabled}
   aria-disabled={isDisabled}
   tabindex={isSelected ? '0' : '-1'}

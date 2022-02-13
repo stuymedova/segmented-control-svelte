@@ -1,6 +1,6 @@
 # Segmented Control
 
-Segmented control is a set of two or more segments, each of which functions as a mutually exclusive button. It features a background, which can be animated with a sliding effect.
+Segmented control is a set of two or more segments, each of which functions as a mutually exclusive button. It features a background, which can be animated with a sliding effect. It is often used to switch between different views.
 
 <img width="1153" alt="segmented-control-svelte" src="https://user-images.githubusercontent.com/53351370/150729107-af17b189-4b81-42ec-8fda-985699180c8e.png">
 
@@ -8,7 +8,7 @@ Segmented control is a set of two or more segments, each of which functions as a
 
 **Installation**
 
-To add a component to a SvelteKit project, run:
+To add a component to a Svelte/SvelteKit project, run:
 ```shell
 npm i segmented-control-svelte
 ```
@@ -20,7 +20,7 @@ Include component on a webpage by adding
 import 'segmented-control-svelte/lightMode.css' // Optional, alternatively use darkMode.css or a custom stylesheet
 import { SegmentedControl, Segment } from 'segmented-control-svelte'
 ```
-within the `script` tags of a Svelte file. You can further use the component as such:
+within the `script` tag of a Svelte file. You can further use the component as such:
 
 ```html
 <SegmentedControl>
@@ -33,8 +33,8 @@ The generated HTML will be as such:
 
 ```html
 <div class="segmented-control" role="tablist" aria-orientation="horizontal">
-  <button id="first" class="segmented-control-item selected" role="tab" aria-disabled="false" aria-selected="true" tabindex="0">First</button>
-  <button id="second" class="segmented-control-item" role="tab" aria-disabled="false" aria-selected="false" tabindex="-1">Second</button>
+  <button id="first" class="segmented-control-item selected" role="tab" aria-selected="true" aria-disabled="false" tabindex="0">First</button>
+  <button id="second" class="segmented-control-item" role="tab" aria-disabled="false" aria-selected="false" aria-disabled="false" tabindex="-1">Second</button>
   <div class="segmented-control-background" role="presentation" style="width: 75px; transform: translateX(2px);"></div>
 </div>
 ```
@@ -115,18 +115,6 @@ Use this option to disable a segment. In the example below, both segments will b
 <SegmentedControl>
   <Segment id='first' disabled>First</Segment>
   <Segment id='second' disabled={true}>Second</Segment>
-</SegmentedControl>
-```
-
-***controls***
-
-Use this option when using Segmented Control for toggling views (for accessibility purposes). Within the quotes specify the id of a controlled view.
-
-<!-- TODO: provide a more complete example -->
-```html
-<SegmentedControl>
-  <Segment id='first' controls='first-caption'>First</Segment>
-  <Segment id='second' controls='second-caption'>Second</Segment>
 </SegmentedControl>
 ```
 
