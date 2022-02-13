@@ -3,47 +3,51 @@
   import { writable } from 'svelte/store'
 
   export let selected = 0
-
-  let selectedIndex = writable(selected)
+  
+  let focusedSegmentIndex = writable(selected)
+  let selectedSegmentIndex = writable(selected) // Selected Segment is one that is focused and not disabled
   let segments = []
-  let indexIterator = -1
-  let backgroundLength = 0
+  let indexesIterator = -1
+  let backgroundWidth = 0
   let backgroundOffset = 0
 
-  $: selected = $selectedIndex
+  $: selected = $selectedSegmentIndex
 
   setContext('SegmentedControl', {
-    selectedIndex,
+    focusedSegmentIndex,
+    selectedSegmentIndex,
     setIndex: () => {
-      indexIterator += 1
-      return indexIterator
+      indexesIterator += 1
+      return indexesIterator
     },
-    addSegment: ({ index, disabled, length, offset }) => {
-      if (index === $selectedIndex) {
-        backgroundLength = length
+    addSegment: ({ index, isDisabled, width, offset }) => {
+      if (index === $selectedSegmentIndex) {
+        if (isDisabled) {
+          console.warn('Segmented Control: Avoid initially selecting a disabled Segment.')
+        }
+
+        backgroundWidth = width
         backgroundOffset = offset
       }
-      segments = [...segments, { index, disabled, length, offset }]
+      segments = [...segments, { index, isDisabled, width, offset }]
     },
-    setAsSelected: (nextIndex) => {
-      $selectedIndex = nextIndex
+    setSelected: (nextIndex) => {
+      if (nextIndex >= 0 && nextIndex < segments.length) {
+        $focusedSegmentIndex = nextIndex
 
-      if ($selectedIndex < 0) {
-        $selectedIndex = 0
-      } else if ($selectedIndex >= segments.length) {
-        $selectedIndex = segments.length - 1
-      }
+        if (!segments[nextIndex].isDisabled) {
+          $selectedSegmentIndex = $focusedSegmentIndex
 
-      if (!segments[$selectedIndex].disabled) {
-        backgroundLength = segments[$selectedIndex].length
-        backgroundOffset = segments[$selectedIndex].offset
+          backgroundWidth = segments[$selectedSegmentIndex].width
+          backgroundOffset = segments[$selectedSegmentIndex].offset
+        }
       }
     }
   })
 
   onMount(() => {
     if (segments.length < 2) {
-      console.error('Segmented Control: For the component to function properly, provide two or more Segments.')
+      console.warn('Segmented Control: For the component to function properly, provide two or more Segments.')
     }
   })
 </script>
@@ -66,6 +70,6 @@
   <div 
     class='segmented-control-background' 
     role='presentation' 
-    style='width: {backgroundLength}px; transform: translateX({backgroundOffset}px)'
+    style='width: {backgroundWidth}px; transform: translateX({backgroundOffset}px)'
   ></div>
 </div>

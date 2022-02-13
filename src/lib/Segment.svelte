@@ -7,20 +7,23 @@
   export let controls = ''
 
   let ref = null
-  let length = 0
+  let width = 0
   let offset = 0
 
   const ctx = getContext('SegmentedControl')
-  const selectedIndex = ctx.selectedIndex
   const index = ctx.setIndex()
-
-  $: selected = $selectedIndex === index
-  $: if (selected) { ref?.focus() }
+  const focusedSegmentIndex = ctx.focusedSegmentIndex
+  const selectedSegmentIndex = ctx.selectedSegmentIndex
+  
+  $: isDisabled = disabled
+  $: isFocused = $focusedSegmentIndex === index
+  $: if (isFocused) { ref?.focus() }
+  $: isSelected = $selectedSegmentIndex === index
   
   onMount(() => {
-    length = Math.round(ref.clientWidth)
+    width = Math.round(ref.clientWidth)
     offset = Math.round(ref.offsetLeft)
-    ctx.addSegment({ index, disabled, length, offset })
+    ctx.addSegment({ index, isDisabled, width, offset })
   })
 </script>
 
@@ -29,18 +32,18 @@
   bind:this={ref}
   id={id !== '' 
     ? id 
-    : console.error('Segmented Control -> Segment: Property "id" is empty. Provide a unique non-empty id.')} 
-  class='segmented-control-item {selected && !disabled ? "selected" : ""} {disabled ? "disabled" : ""}'
+    : console.warn('Segmented Control -> Segment: Property "id" is empty. Provide a unique non-empty id.')} 
+  class='segmented-control-item {isSelected && !isDisabled ? "selected" : ""} {isDisabled ? "disabled" : ""}'
   role='tab'
   aria-controls={controls || undefined}
-  aria-disabled={disabled}
-  aria-selected={selected && !disabled}
-  tabindex={selected && !disabled ? '0' : '-1'}
+  aria-selected={isSelected && !isDisabled}
+  aria-disabled={isDisabled}
+  tabindex={isSelected ? '0' : '-1'}
   {...$$restProps}
   on:click
   on:click|preventDefault={() => { 
-    if (index !== $selectedIndex && disabled !== true) {
-      ctx.setAsSelected(index)
+    if (index !== $selectedSegmentIndex && !isDisabled) {
+      ctx.setSelected(index)
     }
     ref.focus()
   }}
@@ -54,9 +57,9 @@
   on:keydown
   on:keydown='{({ key }) => {
     if (key === 'ArrowRight') {
-      ctx.setAsSelected(index + 1)
+      ctx.setSelected(index + 1)
     } else if (key === 'ArrowLeft') {
-      ctx.setAsSelected(index - 1)
+      ctx.setSelected(index - 1)
     }
   }}'
 >

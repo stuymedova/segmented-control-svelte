@@ -23,7 +23,6 @@
 }
 
 .segmented-control-item {
-	cursor: pointer;
 	font: inherit;
 	line-height: inherit;
 	overflow: visible;
@@ -51,31 +50,16 @@
   color: rgb(255, 255, 255);
   transition: color 275ms;
   background-color: transparent;
-  /* outline: none; */
+  outline: none;
   cursor: pointer;
 }
 
 .segmented-control-item.selected {
   color: rgb(0, 125, 255);
-  pointer-events: none;
+  cursor: default;
 }
 
 .segmented-control-item.disabled {
   color: rgb(145, 145, 150);
-  pointer-events: none;
+  cursor: default;
 }
-
-/* .segmented-control-item:focus {
-	outline: 4px solid rgba(0, 125, 250, 0.6);
-	outline-offset: 1px
-}
-
-.segmented-control-item:focus[data-focus-method="mouse"], 
-.segmented-control-item:focus[data-focus-method="touch"] {
-	outline:none
-}
-
-.segmented-control-item::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-} */
