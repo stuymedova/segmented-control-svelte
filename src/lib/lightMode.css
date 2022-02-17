@@ -50,7 +50,6 @@
   color: rgb(0, 0, 0);
   transition: color 275ms;
   background-color: transparent;
-  outline: none;
   cursor: pointer;
 }
 

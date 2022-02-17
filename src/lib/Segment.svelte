@@ -32,7 +32,7 @@
   id={id !== '' 
     ? id 
     : console.warn('Segmented Control -> Segment: Property "id" is empty. Provide a unique non-empty id.')} 
-  class='segmented-control-item {isSelected && !isDisabled ? "selected" : ""} {isDisabled ? "disabled" : ""}'
+  class='segmented-control-item{isSelected && !isDisabled ? " selected" : ""}{isDisabled ? " disabled" : ""}'
   role='tab'
   aria-selected={isSelected && !isDisabled}
   aria-disabled={isDisabled}
@@ -54,9 +54,9 @@
   on:mouseleave
   on:keydown
   on:keydown='{({ key }) => {
-    if (key === 'ArrowRight') {
+    if (key === 'ArrowRight' || key === 'ArrowDown') {
       ctx.setSelected(index + 1)
-    } else if (key === 'ArrowLeft') {
+    } else if (key === 'ArrowLeft' || key === 'ArrowUp') {
       ctx.setSelected(index - 1)
     }
   }}'

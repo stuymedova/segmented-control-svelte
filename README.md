@@ -45,12 +45,12 @@ You can specify additional options for Segmented Control and each separate Segme
 
 **Segmented Control**
 
-***selected***
+***selectedIndex***
 
 Use this option to specify an index of an element to be selected by default, starting with 0.
 
 ```html
-<SegmentedControl selected={1}>
+<SegmentedControl selectedIndex={1}>
   <Segment id='first'>First</Segment>
   <Segment id='second'>Second</Segment> <!-- This element will be selected initially -->
 </SegmentedControl>
@@ -63,15 +63,15 @@ You can bind to this value to have changes to the selected index be reflected bo
   import 'segmented-control-svelte/main.css'
   import { SegmentedControl, Segment } from 'segmented-control-svelte'
 
-  let selected = 1
+  let selectedIndex = 1
 </script>
 
-<SegmentedControl bind:selected>
+<SegmentedControl bind:selectedIndex>
   <Segment id='first'>First</Segment>
   <Segment id='second'>Second</Segment>
 </SegmentedControl>
 
-<p>Index of a selected element: {selected}</p>
+<p>Index of a selected element: {selectedIndex}</p>
 ```
 
 **Segment**

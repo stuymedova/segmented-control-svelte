@@ -30,4 +30,8 @@
 		display: flex;
 		justify-content: center;
   }
+
+  :global(.segmented-control-item) {
+    outline: none;
+  }
 </style>

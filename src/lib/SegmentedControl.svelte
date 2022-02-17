@@ -2,16 +2,16 @@
   import { setContext, onMount } from 'svelte'
   import { writable } from 'svelte/store'
 
-  export let selected = 0
+  export let selectedIndex = 0
   
-  let focusedSegmentIndex = writable(selected)
-  let selectedSegmentIndex = writable(selected) // Selected Segment is one that is focused and not disabled
+  let focusedSegmentIndex = writable(selectedIndex)
+  let selectedSegmentIndex = writable(selectedIndex) // Selected Segment is one that is focused and not disabled
   let segments = []
   let indexesIterator = -1
   let backgroundWidth = 0
   let backgroundOffset = 0
 
-  $: selected = $selectedSegmentIndex
+  $: selectedIndex = $selectedSegmentIndex
 
   setContext('SegmentedControl', {
     focusedSegmentIndex,
