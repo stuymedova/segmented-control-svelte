@@ -45,7 +45,6 @@
     }
     ref.focus()
   }}
-  on:click
   on:mouseover
   on:focus
   on:mouseout
