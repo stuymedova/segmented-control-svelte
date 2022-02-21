@@ -87,18 +87,18 @@ This option is *required*. For the component to work properly each segment must 
 </SegmentedControl>
 ```
 
-***title***
+***label***
 
-Use this option to specify a title of a segment.
+Use this option to specify a segment's label.
 
 ```html
 <SegmentedControl>
-  <Segment id='first' title='First' />
-  <Segment id='second' title='Second' />
+  <Segment id='first' label='First' />
+  <Segment id='second' label='Second' />
 </SegmentedControl>
 ```
 
-Alternatively, a title can be specified between component tags:
+Alternatively, a label can be specified between component tags:
 
 ```html
 <SegmentedControl>

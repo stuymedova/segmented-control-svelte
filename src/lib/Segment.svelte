@@ -2,7 +2,7 @@
   import { getContext, onMount } from 'svelte'
 
   export let id = ''
-  export let title = ''
+  export let label = ''
   export let disabled = false
 
   let ref = null
@@ -61,5 +61,5 @@
     }
   }}'
 >
-  <slot>{title}</slot>
+  <slot>{label}</slot>
 </button>
