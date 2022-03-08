@@ -60,7 +60,7 @@ You can bind to this value to have changes to the selected index be reflected bo
 
 ```html
 <script>
-  import 'segmented-control-svelte/main.css'
+  import 'segmented-control-svelte/lightMode.css'
   import { SegmentedControl, Segment } from 'segmented-control-svelte'
 
   let selectedIndex = 1
@@ -107,14 +107,14 @@ Alternatively, a label can be specified between component tags:
 </SegmentedControl>
 ```
 
-***disabled***
+***isDisabled***
 
-Use this option to disable a segment. In the example below, both segments will be disabled.
+Use this option to disable selection of segment.
 
 ```html
 <SegmentedControl>
-  <Segment id='first' disabled>First</Segment>
-  <Segment id='second' disabled={true}>Second</Segment>
+  <Segment id='first'>First</Segment>
+  <Segment id='second' isDisabled={true}>Second</Segment>
 </SegmentedControl>
 ```
 

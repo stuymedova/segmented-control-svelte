@@ -3,7 +3,7 @@
 
   export let id = ''
   export let label = ''
-  export let disabled = false
+  export let isDisabled = false
 
   let ref = null
   let width = 0
@@ -14,7 +14,6 @@
   const focusedSegmentIndex = ctx.focusedSegmentIndex
   const selectedSegmentIndex = ctx.selectedSegmentIndex
   
-  $: isDisabled = disabled
   $: isFocused = $focusedSegmentIndex === index
   $: if (isFocused) { ref?.focus() }
   $: isSelected = $selectedSegmentIndex === index
