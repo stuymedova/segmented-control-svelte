@@ -53,12 +53,12 @@
   cursor: pointer;
 }
 
-.segmented-control-item.selected {
+.segmented-control-item[aria-selected='true'] {
   color: rgb(0, 125, 255);
   cursor: default;
 }
 
-.segmented-control-item.disabled {
+.segmented-control-item[aria-disabled='true'] {
   color: rgb(145, 145, 150);
   cursor: default;
 }
