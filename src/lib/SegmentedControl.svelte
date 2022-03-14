@@ -47,7 +47,7 @@
 
   onMount(() => {
     if (segments.length < 2) {
-      console.warn('Segmented Control: For the component to function properly, provide two or more Segments.')
+      console.warn('Segmented Control: For the component to function correctly, provide two or more Segments.')
     }
   })
 </script>
@@ -56,7 +56,6 @@
 <div 
   class='segmented-control' 
   role='tablist'
-  aria-orientation='horizontal'
   {...$$restProps}
   on:click
   on:mouseover
