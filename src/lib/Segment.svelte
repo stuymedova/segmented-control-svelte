@@ -1,7 +1,7 @@
 <script>
   import { getContext, onMount } from 'svelte'
 
-  export let label = ''
+  export let label = 'Label'
   export let isDisabled = false
 
   let ref = null
