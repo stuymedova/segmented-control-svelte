@@ -6,8 +6,8 @@
 
 <div class='segmented-control-container'>
   <SegmentedControl>
-    <Segment id='first'>First</Segment>
-    <Segment id='second'>Second</Segment>
+    <Segment>First</Segment>
+    <Segment>Second</Segment>
   </SegmentedControl>
 </div>
 

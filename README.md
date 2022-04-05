@@ -24,8 +24,8 @@ within the `script` tag of a Svelte file. You can further use the component as s
 
 ```html
 <SegmentedControl>
-  <Segment id='first'>First</Segment>
-  <Segment id='second'>Second</Segment>
+  <Segment>First</Segment>
+  <Segment>Second</Segment>
 </SegmentedControl>
 ```
 
@@ -33,8 +33,8 @@ The generated HTML will be as such:
 
 ```html
 <div class="segmented-control" role="tablist">
-  <button id="first" class="segmented-control-item selected" role="tab" aria-selected="true" aria-disabled="false" tabindex="0">First</button>
-  <button id="second" class="segmented-control-item" role="tab" aria-disabled="false" aria-selected="false" aria-disabled="false" tabindex="-1">Second</button>
+  <button class="segmented-control-item selected" role="tab" aria-selected="true" aria-disabled="false" tabindex="0">First</button>
+  <button class="segmented-control-item" role="tab" aria-disabled="false" aria-selected="false" aria-disabled="false" tabindex="-1">Second</button>
   <div class="segmented-control-background" role="presentation" style="width: 75px; transform: translateX(2px);"></div>
 </div>
 ```
@@ -51,8 +51,8 @@ Use this option to specify an index of an element to be selected by default, sta
 
 ```html
 <SegmentedControl selectedIndex={1}>
-  <Segment id='first'>First</Segment>
-  <Segment id='second'>Second</Segment> <!-- This element will be selected initially -->
+  <Segment>First</Segment>
+  <Segment>Second</Segment> <!-- This element will be selected initially -->
 </SegmentedControl>
 ```
 
@@ -67,8 +67,8 @@ You can bind to this value to have changes to the selected index be reflected bo
 </script>
 
 <SegmentedControl bind:selectedIndex>
-  <Segment id='first'>First</Segment>
-  <Segment id='second'>Second</Segment>
+  <Segment>First</Segment>
+  <Segment>Second</Segment>
 </SegmentedControl>
 
 <p>Index of a selected element: {selectedIndex}</p>
@@ -76,25 +76,14 @@ You can bind to this value to have changes to the selected index be reflected bo
 
 **Segment**
 
-***id***
-
-This option is *required*. For the component to work properly each segment must have a unique identifier.
-
-```html
-<SegmentedControl>
-  <Segment id='first'>First</Segment>
-  <Segment id='second'>Second</Segment>
-</SegmentedControl>
-```
-
 ***label***
 
 Use this option to specify a segment's label.
 
 ```html
 <SegmentedControl>
-  <Segment id='first' label='First' />
-  <Segment id='second' label='Second' />
+  <Segment label='First' />
+  <Segment label='Second' />
 </SegmentedControl>
 ```
 
@@ -102,8 +91,8 @@ Alternatively, a label can be specified between component tags:
 
 ```html
 <SegmentedControl>
-  <Segment id='first'>First</Segment>
-  <Segment id='second'>Second</Segment>
+  <Segment>First</Segment>
+  <Segment>Second</Segment>
 </SegmentedControl>
 ```
 
@@ -113,8 +102,8 @@ Use this option to disable selection of segment.
 
 ```html
 <SegmentedControl>
-  <Segment id='first'>First</Segment>
-  <Segment id='second' isDisabled={true}>Second</Segment>
+  <Segment>First</Segment>
+  <Segment isDisabled={true}>Second</Segment>
 </SegmentedControl>
 ```
 
