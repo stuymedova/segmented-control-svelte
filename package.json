@@ -1,6 +1,6 @@
 {
   "name": "segmented-control-svelte",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -11,9 +11,9 @@
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "svelte": "^3.44.0",
-    "svelte2tsx": "^0.4.14",
-    "typescript": "^4.5.5"
+    "svelte": "^3.46.6",
+    "svelte2tsx": "^0.5.6",
+    "typescript": "^4.6.3"
   },
   "repository": "github:stuymedova/segmented-control-svelte",
   "keywords": [
