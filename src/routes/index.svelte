@@ -26,7 +26,6 @@
 		position: absolute;
 		left: 0;
 		top: 12px;
-		z-index: 99;
 		display: flex;
 		justify-content: center;
   }
