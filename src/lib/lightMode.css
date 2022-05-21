@@ -1,4 +1,17 @@
+:root {
+  --segmented-control-color-accent: rgb(0, 125, 255);
+  --segmented-control-color-primary: rgb(255, 255, 255);
+
+  --segmented-control-color-background-accent: rgb(255, 255, 255);
+  --segmented-control-color-background: rgba(225, 225, 225, 75%);
+
+  --segmented-control-color-text-primary: rgb(0, 0, 0);
+  --segmented-control-color-text-disabled: rgba(0, 0, 0, 30%);
+}
+
+
 .segmented-control {
+  width: auto;
   height: 44px;
   position: relative;
   box-sizing: border-box;
@@ -8,24 +21,35 @@
   border-radius: 14px;
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  background-color: rgb(235, 235, 235);
+  background-color: var(--segmented-control-color-background);
   z-index: 1;
 }
+.segmented-control[aria-orientation='vertical'] {
+  width: 79px;
+  height: 88px;
+  flex-direction: column;
+}
 
-.segmented-control-background {
+.segmented-control .segmented-control-background {
+  height: 40px;
   position: absolute;
   top: 2px;
   left: 0;
-  z-index: 1;
-  height: 40px;
   margin: 0;
   padding: 0;
   border-radius: 12px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--segmented-control-color-background-accent);
   transition: width 300ms, transform 300ms;
+  z-index: 1;
+}
+.segmented-control[aria-orientation='vertical'] .segmented-control-background {
+  width: 75px;
+  top: 0;
+  left: 2px;
+  transition: height 300ms, transform 300ms;
 }
 
-.segmented-control-item {
+.segmented-control .segmented-control-item {
 	font: inherit;
 	line-height: inherit;
 	overflow: visible;
@@ -34,6 +58,7 @@
   position: relative;
   box-sizing: border-box;
   width: 75px;
+  height: 42px;
   margin: 0;
   padding: 12px;
   border: 0;
@@ -50,18 +75,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
   
-  color: rgb(0, 0, 0);
+  color: var(--segmented-control-color-text-primary);
   transition: color 275ms;
   background-color: transparent;
   cursor: pointer;
 }
-
-.segmented-control-item[aria-selected='true'] {
-  color: rgb(0, 125, 255);
+.segmented-control .segmented-control-item[aria-selected='true'] {
+  color: var(--segmented-control-color-accent);
   cursor: default;
 }
-
-.segmented-control-item[aria-disabled='true'] {
-  color: rgb(145, 145, 150);
+.segmented-control .segmented-control-item[aria-disabled='true'] {
+  color: var(--segmented-control-color-text-disabled);
   cursor: default;
 }

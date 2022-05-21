@@ -74,6 +74,17 @@ You can bind to this value to have changes to the selected index be reflected bo
 <p>Index of a selected element: {selectedIndex}</p>
 ```
 
+***orientation***
+
+Use this option to specify orientation of the Segmented Control. Accepted options are 'horizontal' and 'vertical'. Default orientation is 'horizontal'.
+
+```html
+<SegmentedControl orientation='vertical'>
+  <Segment>First</Segment>
+  <Segment>Second</Segment>
+</SegmentedControl>
+```
+
 **Segment**
 
 ***label***
