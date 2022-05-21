@@ -32,7 +32,7 @@ within the `script` tag of a Svelte file. You can further use the component as s
 The generated HTML will be as such:
 
 ```html
-<div class="segmented-control" role="tablist">
+<div class="segmented-control" role="tablist" aria-orientation="horizontal">
   <button class="segmented-control-item selected" role="tab" aria-selected="true" aria-disabled="false" tabindex="0">First</button>
   <button class="segmented-control-item" role="tab" aria-disabled="false" aria-selected="false" aria-disabled="false" tabindex="-1">Second</button>
   <div class="segmented-control-background" role="presentation" style="width: 75px; transform: translateX(2px);"></div>
