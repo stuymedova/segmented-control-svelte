@@ -63,15 +63,15 @@ You can bind to this value to have changes to the selected index be reflected bo
   import 'segmented-control-svelte/lightMode.css'
   import { SegmentedControl, Segment } from 'segmented-control-svelte'
 
-  let selectedIndex = 1
+  let segmentedControlSelectedIndex = 1
 </script>
 
-<SegmentedControl bind:selectedIndex>
+<SegmentedControl bind:selectedIndex={segmentedControlSelectedIndex}>
   <Segment>First</Segment>
   <Segment>Second</Segment>
 </SegmentedControl>
 
-<p>Index of a selected element: {selectedIndex}</p>
+<p>Index of a selected element: {segmentedControlSelectedIndex}</p>
 ```
 
 ***orientation***
