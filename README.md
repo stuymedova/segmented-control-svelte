@@ -76,7 +76,7 @@ You can bind to this value to have changes to the selected index be reflected bo
 
 ***orientation***
 
-Use this option to specify orientation of the Segmented Control. Accepted options are 'horizontal' and 'vertical'. Default orientation is 'horizontal'.
+Use this option to specify orientation of the Segmented Control. Accepted options are "horizontal" and "vertical". Default orientation is "horizontal".
 
 ```html
 <SegmentedControl orientation='vertical'>
