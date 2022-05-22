@@ -89,7 +89,7 @@ Use this option to specify orientation of the Segmented Control. Accepted option
 
 ***label***
 
-Use this option to specify a segment's label.
+Use this option to specify a Segment's label.
 
 ```html
 <SegmentedControl>
@@ -109,7 +109,7 @@ Alternatively, a label can be specified between component tags:
 
 ***isDisabled***
 
-Use this option to disable selection of segment.
+Use this option to disable selection of a Segment.
 
 ```html
 <SegmentedControl>
