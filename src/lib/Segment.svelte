@@ -37,7 +37,7 @@
   class='segment'
   type='button'
   role='tab'
-  aria-selected={isSelected && !isDisabled}
+  aria-selected={isSelected}
   aria-disabled={isDisabled}
   tabindex={isSelected ? '0' : '-1'}
   {...$$restProps}
