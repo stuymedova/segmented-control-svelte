@@ -49,7 +49,7 @@
   transition: height 300ms, transform 300ms;
 }
 
-.segmented-control .segmented-control-item {
+.segmented-control .segment {
 	font: inherit;
 	line-height: inherit;
 	overflow: visible;
@@ -80,11 +80,15 @@
   background-color: transparent;
   cursor: pointer;
 }
-.segmented-control .segmented-control-item[aria-selected='true'] {
+.segmented-control .segment[aria-selected='true'] {
   color: var(--segmented-control-color-accent);
   cursor: default;
 }
-.segmented-control .segmented-control-item[aria-disabled='true'] {
+.segmented-control .segment[aria-disabled='true'] {
   color: var(--segmented-control-color-text-disabled);
   cursor: default;
+}
+
+.segmented-control .segment:not(:focus-visible) {
+  outline: none;
 }

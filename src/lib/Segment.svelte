@@ -34,7 +34,7 @@
 
 <button 
   bind:this={ref}
-  class='segmented-control-item'
+  class='segment'
   type='button'
   role='tab'
   aria-selected={isSelected && !isDisabled}
@@ -46,7 +46,6 @@
     if (index !== $selectedSegmentIndex && !isDisabled) {
       ctx.setSelected(index)
     }
-    ref.focus()
   }}
   on:mouseover
   on:focus

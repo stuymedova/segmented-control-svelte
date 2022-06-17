@@ -4,7 +4,7 @@
 </script>
 
 
-<div class='segmented-control-container'>
+<div class='component-wrapper'>
   <SegmentedControl>
     <Segment>First</Segment>
     <Segment>Second</Segment>
@@ -21,16 +21,12 @@
     background-color: rgb(255, 255, 255);
   }
 
-  .segmented-control-container {
+  .component-wrapper {
 		width: 100%;
 		position: absolute;
 		left: 0;
 		top: 12px;
 		display: flex;
 		justify-content: center;
-  }
-
-  :global(.segmented-control-item) {
-    outline: none;
   }
 </style>
