@@ -31,8 +31,9 @@
 }
 
 .segmented-control .segmented-control-background {
-  height: 40px;
   position: absolute;
+  width: auto;
+  height: 40px;
   top: 2px;
   left: 0;
   margin: 0;
@@ -44,17 +45,13 @@
 }
 .segmented-control[aria-orientation='vertical'] .segmented-control-background {
   width: 75px;
+  height: auto;
   top: 0;
   left: 2px;
   transition: height 300ms, transform 300ms;
 }
 
 .segmented-control .segment {
-	font: inherit;
-	line-height: inherit;
-	overflow: visible;
-	vertical-align: inherit;
-
   position: relative;
   box-sizing: border-box;
   width: 75px;
