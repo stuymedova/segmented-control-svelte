@@ -1,6 +1,6 @@
 {
   "name": "segmented-control-svelte",
-  "version": "3.7.3",
+  "version": "3.8.3",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
