@@ -1,0 +1,10 @@
+:root {
+  --segmented-control-color-accent: rgb(0, 125, 255);
+  --segmented-control-color-primary: rgb(0, 0, 0);
+
+  --segmented-control-color-background-accent: rgb(25, 25, 25);
+  --segmented-control-color-background: rgb(35, 35, 35);
+
+  --segmented-control-color-text-primary: rgb(255, 255, 255);
+  --segmented-control-color-text-disabled: rgba(0, 0, 0, 30%);
+}

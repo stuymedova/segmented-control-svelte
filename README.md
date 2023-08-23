@@ -15,9 +15,9 @@ npm i segmented-control-svelte
 
 **Usage**
 
-Include component on a webpage by adding 
+Include component on a webpage by adding
 ```js
-import 'segmented-control-svelte/lightMode.css' // Optional, alternatively use darkMode.css or a custom stylesheet
+import 'segmented-control-svelte/main.css' // Optional, alternatively use darkMode.css or a custom stylesheet
 import { SegmentedControl, Segment } from 'segmented-control-svelte'
 ```
 within the `script` tag of a Svelte file. You can further use the component as such:
@@ -60,7 +60,7 @@ You can bind to this value to have changes to the selected index be reflected bo
 
 ```html
 <script>
-  import 'segmented-control-svelte/lightMode.css'
+  import 'segmented-control-svelte/main.css'
   import { SegmentedControl, Segment } from 'segmented-control-svelte'
 
   let segmentedControlSelectedIndex = 1
